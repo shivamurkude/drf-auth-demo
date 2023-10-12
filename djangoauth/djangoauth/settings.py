@@ -75,17 +75,14 @@ TEMPLATES = [
 AUTH_USER_MODEL = "account.User"
 WSGI_APPLICATION = 'djangoauth.wsgi.application'
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-
+     'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+     'DEFAULT_AUTHENTICATION_CLASSES': (
+    
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
- 
 }
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
